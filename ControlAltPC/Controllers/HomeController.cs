@@ -34,6 +34,12 @@ namespace ControlAltPC.Controllers
             return View();
         }
 
+        public IActionResult AboutMore()
+        {
+            return View();
+            //return View("Some-Other-View-Name);
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
