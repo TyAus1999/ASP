@@ -1,4 +1,6 @@
-﻿
+﻿@*//Getting list of products*@
+@model IEnumerable<ControlAltPC.Models.Product>
+@*@model ControlAltPC.Models.Product //Used for getting a single item*@
 @{
     ViewData["Title"] = "Shop the Ctrl-Alt-PC Store";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -7,8 +9,12 @@
 <h2>Please choose a product</h2>
 
 <ul>
-    @for(var i = 1; i < 11; i++)
+    @*@for(var i = 0; i < 11; i++)
+        {
+            <li><a asp-controller="Store" asp-action="Details" asp-route-product="Product @i">Product @i</a></li>
+        }*@
+    @foreach (var product in Model)
     {
-        <li><a asp-controller="Store" asp-action="Details" asp-route-product="Product @i">Product @i</a></li>
+        <li><a asp-controller="Store" asp-action="Details" asp-route-product="@product.Name">@product.Name</a></li>
     }
 </ul>

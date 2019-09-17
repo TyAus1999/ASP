@@ -10,7 +10,15 @@ namespace ControlAltPC.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            //Make list of mock products
+            var products = new List<Models.Product>();
+            //use loop to populate product list
+            for(int i = 0; i < 11; i++)
+            {
+                products.Add(new Models.Product { Name = "Product " + (i + 1).ToString()});
+            }
+
+            return View(products);
         }
         public IActionResult Details(string product)//asp-route-product
         {
